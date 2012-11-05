@@ -29,5 +29,5 @@ bib:
 	bibtex $(MAIN)
 
 clean:
-	find -E . -regex ".*\.(aux|log|nls|dvi|blg|bbl|out|idx|ilg|ind|lol|lof|nlo|toc|loa|lot)" -delete
+	find -E . -regex "^(\.git).*\.(aux|log|nls|dvi|blg|bbl|out|idx|ilg|ind|lol|lof|nlo|toc|loa|lot)" -delete
 
