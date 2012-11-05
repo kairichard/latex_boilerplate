@@ -1,6 +1,6 @@
 MAIN = document
 PDFLATEX = pdflatex -shell-escape -halt-on-error
-$(MAIN): check convert bib index build open clean
+$(MAIN): check convert bib index build clean
 
 build:
 	$(PDFLATEX) $(MAIN).tex
@@ -29,5 +29,5 @@ bib:
 	bibtex $(MAIN)
 
 clean:
-	find -E . -regex "^(\.git).*\.(aux|log|nls|dvi|blg|bbl|out|idx|ilg|ind|lol|lof|nlo|toc|loa|lot)" -delete
+	find -E . -path ./.git -prune -o  -regex ".*\.(aux|log|nls|dvi|blg|bbl|out|idx|ilg|ind|lol|lof|nlo|toc|loa|lot|nls)" -exec rm -f {} \;
 
