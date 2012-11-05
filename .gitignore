@@ -9,7 +9,6 @@
 *.idx
 *.ilg
 *.ind
-*.ist
 *.lof
 *.log
 *.lot
@@ -25,4 +24,6 @@
 *.maf
 *.mtc
 *.mtc0
+*.loa
+*.lol
 .DS_Store
