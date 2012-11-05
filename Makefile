@@ -29,4 +29,5 @@ bib:
 	bibtex $(MAIN)
 
 clean:
-	rm -f *.out *.pdf *.aux *.dvi *.log *.blg *.bbl
+	find -E . -regex ".*\.(aux|log|nls|dvi|blg|bbl|out|idx|ilg|ind|lol|lof|nlo|toc|loa|lot)" -delete
+
