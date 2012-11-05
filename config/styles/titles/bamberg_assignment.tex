@@ -1,0 +1,30 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                   TITLE SETUP                                         %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\makeatletter
+\renewcommand{\maketitle}{
+\begin{titlepage}
+\begin{flushright}
+\includegraphics[width=25mm]{contents/image/logo.png}
+\end{flushright}
+\setstretch{1.2}
+\vspace*{10mm}
+\centering
+\Huge \textbf{\assignment}\\
+\vspace{1cm}
+\Large
+im Modul \studycourse\ der Fakultät Wirtschaftsinformatik und Angewandte Informatik der Otto-Friedrich-Universität Bamberg\\
+\normalsize
+\vfill
+\begin{flushleft}
+\begin{tabbing}
+xxxxxxxxxxxxxxx\=xxxxxxxxxxxxxx\kill
+Verfasser: \> \@author\\
+Abgabedatum:\> \@date\\
+\end{tabbing}
+\end{flushleft}
+\end{titlepage}
+}
+\makeatother
+
+

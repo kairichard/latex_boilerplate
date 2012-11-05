@@ -1,0 +1,281 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                   COMMAND SETUP                                       %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+
+%#1 Breite
+%#2 Datei (liegt im image Verzeichnis)
+%#3 Beschriftung
+%#4 Label fuer Referenzierung
+\newcommand{\image}[4]{
+\begin{figure}[H]
+\centering
+\includegraphics[width=#1]{contents/image/#2}
+\caption{#3}
+\label{#4}
+\end{figure}
+}
+
+%#1 Datei (liegt im graphic Verzeichnis)
+%#2 Beschriftung
+%#3 Label fuer Referenzierung
+\newcommand{\tikzimage}[3]{%
+\begin{figure}[H]%
+\centering%
+\input{contents/graphic/#1.tikz}%
+\caption{#2}%
+\label{#3}%
+\end{figure}
+}
+
+%#1 Datei (liegt im graphic Verzeichnis)
+%#2 Beschriftung
+%#3 Label fuer Referenzierung
+%#4 Skalierungsfaktor
+\newcommand{\scaletikzimage}[4]{%
+\begin{figure}[H]%
+\centering%
+\scalebox{#4}{%
+\input{contents/graphic/#1.tikz}}%
+\caption{#2}%
+\label{#3}%
+\end{figure}
+}
+
+%#1 Breite
+%#2 Höhe
+%#2 Datei (liegt im image Verzeichnis)
+%#3 Beschriftung
+%#4 Label fuer Referenzierung
+\newcommand{\imagebh}[5]{
+\begin{figure}[H]
+\centering
+\includegraphics[width=#1, height=#2]{contents/image/#3}
+\caption{#4}
+\label{#5}
+\end{figure}
+}
+
+%#1 Breite
+%#2 Datei (liegt im image Verzeichnis)
+%#3 zugehörige Bildunterschrift
+%#4 Beschriftung
+%#5 Label fuer Referenzierung
+\newcommand{\mathimage}[5]{
+\begin{figure}[H]
+\centering
+\includegraphics[width=#1]{contents/image/#2}\\
+#3
+\caption{#4}
+\label{#5}
+\end{figure}
+}
+%#1 algorithm name
+%#2 algorithm label
+%#3 file name in code-folder
+\newcommand{\pseudo}[3]{%
+\small%
+\begin{algorithm}[H]%
+\caption{#1}%
+\label{#2}%
+\input{contents/code/#3.tex}%
+\end{algorithm}%
+\normalsize%
+}
+%#1 algorithm name
+%#2 algorithm label
+%#3 file name in code-folder
+\newcommand{\realcode}[3]{%
+\definecolor{bg}{rgb}{0.95,0.95,0.95}
+\small%
+\begin{listing}[H]%
+\input{contents/code/#3.tex}%
+\caption{#1}
+\label{#2}%
+\end{listing}%
+\normalsize%
+}
+
+%#1 Text der als todo dargestellt werden soll
+\newcommand{\todo}[1]{
+\begin{quote}
+\textcolor{red}{\textbf{TODO: #1}}
+\end{quote}
+}
+
+\newcommand{\rimage}[2]{
+\begin{figure}[H]
+\centering
+#1
+%\caption{#2}
+\end{figure}
+}
+
+\newcommand \rack {
+       {\LARGE $\square$}
+}
+
+\newcommand \deftab
+{\hspace{1.5cm}\=abcdfffefghijk\hspace{1cm}\=1\hspace{1.5cm}\=1\hspace{1.5cm}\=1\hspace{1.5cm}\=1\hspace{1.5cm}\=1\hspace{1.5cm}\=asdjadj\kill}
+
+\newcommand \einsbisfuenf
+{\> {\bf -2} \> {\bf -1} \> {\bf 0} \> {\bf 1} \> {\bf 2} \>}
+
+% #1 videofile
+% #2 scalefactor
+\newcommand{\video}[2]{%
+\includemovie[text={\includegraphics[scale=#2]{praesi/video/#1.png}}, autoplay, mouse=true, repeat=1]{}{}{praesi/video/#1.swf}}
+
+% The \munepsfig command is used to insert a new EPS figure 
+% into our document.  Usage is:
+%
+%	\munepsfig[args]{filename}{caption}
+%
+% where:
+%	- the optional 'args' argument is passed to the
+%	  embedded \includegraphics command, this can be used
+%	  to scale the figure or rotate it.
+%	- 'filename' is the name of the EPS file in the 'figures'
+%	  directory that is to be inserted (note that 'filename'
+%         should not include the '.eps' extension).
+%	- 'filename' also serves as the label for the figure.
+%	  with the text 'fig:' prepended.
+%
+% Sample Usage:
+% 	\munepsfig[scale=0.5,angle=90]{barchart}{Population over time}
+
+% inserts the EPS file 'figures/barchart.eps' reduced in size by 50%
+% rotated 90 degrees and with the caption "Popuation over Time."
+% We can refer to that figure as Figure~\ref{fig:barchart} in the text.
+%
+\newcommand{\munepsfig}[3][scale=1.0]{%
+	\begin{figure}[!htbp]
+		\centering
+		\vspace{2mm}
+		\includegraphics[#1]{figures/#2}
+		\caption{#3}
+		\label{fig:#2}
+	\end{figure}
+}
+\newcommand{\muneps}[3][scale=1.0]{%
+		\vspace{2mm}
+		\includegraphics[#1]{figures/#2}
+		\caption{#3}
+		\label{fig:#2}
+}
+% \munlepsfig command inserts a figure in landscape mode.  The
+% entire page is rotated to accommodate the figure.  The arguments
+% are the same as for \munepsfig, above
+%
+\newcommand{\munlepsfig}[3][scale=1.0]{%
+	\begin{sidewaysfigure}[!htbp]
+		\centering
+		\vspace{2mm}
+		\includegraphics[#1]{figures/#2.eps}
+		\caption{#3}
+		\label{fig:#2}
+	\end{sidewaysfigure}
+}
+
+% The 'muntxtfig' environment is used to insert 'textual' figures
+% into our document, such as brief source code snippets.  Usage is:
+%
+%	\begin{muntxtfig}[spacing]{label}{caption}{width}
+%	  text for 'figure'
+%	\end{muntxtfig}
+%
+% where:
+%	- 'spacing' is a number representing the baselinestretch
+%	  (line-spacing) to use for the text figure.  Default is
+%          single-spacing.
+%	- 'label' is the label to be used for referencing.
+%	   The figure can be referenced as Figure~\ref{fig:label}.
+%	- 'caption' is the caption to display below the figure.
+%	- 'width' is the width of the minipage in which the text figure
+%	  is formatted.
+%
+% Sample usage:
+% \begin{muntxtfig}[1.0]{code}{Hello World}{0.5\textwidth}
+%   Some text
+% \end{muntxtfig}
+%
+\newenvironment{muntxtfig}[4][\spacing]{%
+	\begin{figure}[!htbp]
+		\centering
+		\def\muncaption{#3}%
+		\def\munlabel{#2}%
+		\renewcommand{\baselinestretch}{#1}%
+		\normalsize%
+		\begin{minipage}{#4}
+		\hrule \hrule
+		\bigskip
+}{%
+		\hrule \hrule
+		\end{minipage}
+		\renewcommand{\baselinestretch}{\spacing}%
+		\normalsize%
+		\caption{\muncaption}
+		\label{fig:\munlabel}
+	\end{figure}
+}
+
+% The 'muntab' environment is used to insert a new table into our document.
+% Usage is:
+%
+%	\begin{muntab}{table_format}{label}{caption}
+%        table contents
+%       \end{muntab}
+%
+% where:
+%	- 'label' is the label used to reference the Table.
+%	   We can refer to the table as Table~\ref{tab:label} in
+%          the text.
+%	- 'caption' is the caption placed above the Table.
+%
+%
+\newenvironment{muntab}[3]{%
+	\begin{table}[!htbp]
+		\centering
+		\caption{#3}
+		\label{tab:#2}
+		\vspace{2mm}
+		\begin{tabular}{#1}
+}{%
+		\end{tabular}
+	\end{table}
+}
+
+% The 'munltab' environment is like muntab, but displays the table
+% in landscape mode on its own page.  See muntab environment for usage.
+%
+\newenvironment{munltab}[3]{%
+	\begin{sidewaystable}
+		\centering
+		\caption{#3}
+		\label{tab:#2}
+		\vspace{2mm}
+		\begin{tabular}{#1}
+}{%
+		\end{tabular}
+	\end{sidewaystable}
+}
+
+% The \muneqn environment is used to add an equation to the thesis.
+% Usage is:
+%
+%	\begin{muneqn}{label}
+%         equation body
+%	\end{muneqn}
+%
+% where:
+%	- 'label' is the label used to reference the Equation.
+%	   We can refer to the equation as Table~\ref{eqn:label} in
+%          the text.
+%
+\newenvironment{muneqn}[1]{%
+	\begin{equation}
+		\label{eqn:#1}
+}{
+	\end{equation}
+}
+

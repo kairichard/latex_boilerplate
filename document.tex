@@ -1,0 +1,84 @@
+
+%% 
+%% LaTeX Boilerplate v2
+%% 
+
+\include{config/setup}
+%\include{config/styles/bamberg_final}
+\include{config/styles/bamberg_assignment}
+
+\begin{document}
+
+% \onehalfspacing
+\setstretch{1.09}
+\maketitle
+
+%% Seitenlayout
+\cleardoubleemptypage 
+\pagenumbering{Roman}
+\tableofcontents
+\newpage
+\listoffigures
+\newpage
+\listoftables
+\newpage
+\listofalgorithms
+\newpage
+\listoflistings
+\newpage
+%%   Falls nur Abkuerzungs- oder Symbolverzeichnis benoetigt wird, folgende Befehle benutzen   %%
+%\printnomenclature
+
+%%   Abkuerzungs- und Symbolverzeichnis   %%
+%%   Zum alphabetischen Sortieren in der Konsole "makeindex filename.nlo -s nomencl.ist -o filename.nls" ausfuehren; nach dem zweiten Kompilieren erscheint das Abkuerzungsverzeichnis dann im Dokument   %%
+%%   Alternativ im TeXnicCenter unter Ausgabe - Ausgabeprofile definieren - Nachbearbeitung einen Postprocessor ("Neu"-Button oben rechts) erstellen. Nach Bennenung unten als Anwendung Makeindex (aus Verzeichnis "./miktex/bin/makeindex.exe") auswaehlen und als Argumente folgenden String setzen: "%bm".nlo -s nomencl.ist -o "%bm".nls"   %%
+\usetwonomenclatures
+\printnomenclature
+
+\cleardoubleemptypage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+% 1.5-facher Zeilenabstand für die Arbeit 
+\setstretch{1.5}
+
+% -- Table of Contents --
+% missing in action
+
+% -- set document spacing --
+% \setstretch{1.09}
+% \setstretch{1.30}
+% \setstretch{1.50}
+
+% -- Import content here
+\chapter{WTF}
+\input{contents/chapters/s_introduction}
+
+\input{contents/chapters/s_further_testing.tex}
+
+
+\cleardoubleemptypage 
+
+% 1.1-facher Zeilenabstand für das Literaturverzeichnis und den Anhang 
+\setstretch{1.1}
+% -- Bibliography
+\bibliographystyle{alphadin}%alpha}%abbrvdin}%natdin}%plaindin}%apa}
+%plaindin = Literaturverzeichnis nach deutschem DIN-Standard siehe Webseite von Lorenzen www.haw-hamburg.de/pers/Lorenzen
+\bibliography{contents/literatur/bib}
+
+\cleardoubleemptypage% 
+% Stichwortverzeichnis soll im Inhaltsverzeichnis auftauchen
+% Sprungmarke mit Phantomsection korrigiert
+\phantomsection%
+\addcontentsline{toc}{chapter}{Index}%
+% Stichwortverzeichnis endgueltig anzeigen
+\printindex%
+
+
+\appendix
+\setstretch{1.5}
+\chapter{Anhang}
+\setstretch{1.1}
+\erklaerung
+\cleardoubleemptypage 
+
+\end{document}

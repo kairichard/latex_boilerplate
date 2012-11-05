@@ -1,0 +1,38 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                   TITLE SETUP                                         %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\makeatletter
+\renewcommand{\maketitle}{
+\begin{titlepage}
+\begin{flushright}
+\includegraphics[width=25mm]{contents/image/logo.png}
+\end{flushright}
+\setstretch{1.2}
+\vspace*{10mm}
+\begin{minipage}[t]{2cm}
+\textsc{Thema:}
+\end{minipage}
+\begin{minipage}[t]{12cm}
+\textbf{\Large \@title}\\[10mm]
+\textbf{\large \@subtitle \normalsize}
+\end{minipage}\\[25mm]
+\centering
+\Huge \textbf{\degree arbeit}\\
+\vspace{1cm}
+\Large
+im Studiengang \studycourse\ der Fakultät Wirtschaftsinformatik und Angewandte Informatik der Otto-Friedrich-Universität Bamberg\\
+\normalsize
+\vfill
+\begin{flushleft}
+\begin{tabbing}
+xxxxxxxxxxxxxxx\=xxxxxxxxxxxxxx\kill
+Verfasser: \> \@author\\
+Themensteller:\> \advisor \\
+Abgabedatum:\> \@date\\
+\end{tabbing}
+\end{flushleft}
+\end{titlepage}
+}
+\makeatother
+
+

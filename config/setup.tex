@@ -1,0 +1,170 @@
+\documentclass[
+    12pt,                % Schriftgroesse 12pt
+    a4paper,             % Layout fuer Din A4
+    ngerman, 			% deutsche Sprache, global
+    %oneside,            % einseitig
+    %twoside,             % Layout fuer beidseitigen Druck
+    openright,          % Start auf rechter Seite   
+    headinclude,         % Kopfzeile wird Seiten-Layouts mit beruecksichtigt
+    headsepline,         % horizontale Linie unter Kolumnentitel
+	  %footinclude,
+	  %footexclude,		%fusszeile nicht bercksichtigen
+    %plainheadsepline,    % horizontale Linie auch beim plain-Style
+    BCOR12mm,            % Korrektur fuer die Bindung
+    DIV14,               % DIV-Wert fuer die Erstellung des Satzspiegels, siehe scrguide
+    %DIVcalc,							% automatische Berechnung des Satzspiegels
+    halfparskip,         % Absatzabstand statt Absatzeinzug
+    %openany,             % Kapitel knnen auf geraden und ungeraden Seiten beginnen
+    %openright,							% Kapitel auf rechten Seiten beginnen!
+    bibtotoc,              % Literaturverz. wird ins Inhaltsverzeichnis eingetragen
+    liststotoc,						% Verzeichnisse ins Inhaltsverzeichnis
+    %pointlessnumbers,    % Kapitelnummern immer ohne Punkt
+    tablecaptionabove,   % korrekte Abstaende bei TabellenUEBERschriften
+    fleqn,               % fleqn: Glgen links (statt mittig)
+    %draft,               % Keine Bilder in der Anzeige, overfull hboxes werden angezeigt
+    appendixprefix				%berschriften des Anhangs +"Anhang"
+    %chapterprefix,				%berschriften der Kapitel +"KAPITEL"
+    %tablecaptionabove,    %tabellen immer als berschriften
+    %abstracton,
+    %pdftex						%berschrift Zusammenfassung einschalten
+     ]{scrreprt}
+
+% Formatierungen
+\usepackage{typearea}
+\areaset[1cm]{16cm}{26cm}
+\usepackage[small,bf,up]{caption}  %nicer captions
+\renewcommand{\captionfont}{\small}
+\usepackage[hyphens]{url}
+
+% Für PDF-Erstellung
+\usepackage{ae}                 
+% schönere Symbole
+\usepackage{latexsym}			
+
+\usepackage{color}
+\usepackage{float}
+\usepackage{rotating}
+
+% Codehilighting
+\usepackage{minted}
+\usemintedstyle{murphy}
+% Floating figures
+\usepackage{wrapfig}
+
+% Quellcode
+% PseudoCode
+\usepackage[chapter]{algorithm}
+\usepackage{algpseudocode}
+%\usepackage{algorithmicx}
+\floatname{algorithm}{Algorithmus}
+\algrenewcommand{\algorithmiccomment}[1]{\hskip1em\textcolor{gray!60}{$\rhd$ #1}}
+\renewcommand{\listalgorithmname}{Algorithmen}
+\def\algorithmautorefname{Algorithmus}
+
+
+
+% Zeichensätze
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc} % T1-kodierte Schriften, korrekte Trennmuster fuer Worte mit Umlauten
+\usepackage{lmodern}
+
+   
+% Hyperref
+\usepackage{hyperref}
+\definecolor{darkblue}{rgb}{0,.05,.54}
+\definecolor{darkgreen}{rgb}{0,.54,.05}
+\definecolor{almostblack}{rgb}{.1,.1,.1}
+\makeatletter
+\hypersetup{pdftitle={\@title}, pdfauthor={\@author}, pdfsubject={\@subject}, colorlinks=true, breaklinks=false, linkcolor=almostblack, menucolor=darkblue, urlcolor=darkblue, citecolor=darkblue, filecolor=darkblue, pdfborder=0 0 0}
+\makeatother
+\urlstyle{same}
+\usepackage[all]{hypcap}
+
+% Sprache
+\usepackage[german,ngerman]{babel}
+
+% Mathe und Formeln
+\usepackage{calc}
+\usepackage[centertags]{amsmath}
+\usepackage{amssymb,amsthm,amsfonts}
+\usepackage{cancel}  %%druchstreichen von Formeln
+
+% Programmieren mit Latex
+\usepackage{ifthen}
+
+% Zeilenabstand
+\usepackage{setspace}
+\setstretch{1.1}
+
+%setzen von baumstrukturen
+\usepackage{dirtree}   
+% WINDINGS additional Symbols
+\usepackage{bbding}    
+
+% kleinere Anstände bei enums und itemizes möglich
+\usepackage{paralist}      
+
+% Fuer anspruchsvolle Tabellen 
+\usepackage{longtable, colortbl}
+\usepackage{multicol, multirow}
+
+% Für Grafiken
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usetikzlibrary{arrows,shapes,fit,positioning,backgrounds,shadows}
+
+% Zur Darstellung des Euro-Symbols
+\usepackage{eurosym, wasysym}
+\selectlanguage{german}
+% Fuer @author == \theauthor
+\usepackage{titling}
+% Fuer Bibtex nach APA Style (American Psychology Association)   %%
+\usepackage[numbers]{natbib}
+
+% intoc zur Aufnhame des Abkuerzungs- und Symbolverzeichnisses ins Inhaltsverzeichnis  
+\usepackage[intoc]{nomencl}
+\setlength{\nomlabelwidth}{.20\hsize}
+%\renewcommand{\nomlabel}[1]{#1 \dotfill}
+\setlength{\nomitemsep}{-\parsep}
+\makenomenclature
+\renewcommand{\nomname}{Abk\"urzungsverzeichnis}
+\newcommand{\nomaltname}{Symbolverzeichnis}
+\newcommand{\nomaltpreamble}{}
+\newcommand{\nomaltpostamble}{}
+\newcommand{\usetwonomenclatures}{\nomenclature[\switchnomitem]{}{}}
+\newcommand{\switchnomitem}{R}
+\renewcommand{\nomgroup}[1]{%
+\ifthenelse{\equal{#1}{\switchnomitem}}{\switchnomalt}{}}
+\newcommand{\switchnomalt}{%
+\end{thenomenclature}
+\newpage
+\renewcommand{\nomname}{\nomaltname}
+\renewcommand{\nompreamble}{\nomaltpreamble}
+\renewcommand{\nompostamble}{\nomaltpostamble}
+\begin{thenomenclature}
+}
+
+
+% Stichwortverzeichnis
+\usepackage{makeidx}
+\makeindex
+
+% Hervorhebung der Abkuerzungsbuchstaben   %%
+\usepackage[normalem]{ulem}
+\newcommand{\m}[1]{\uline{#1}}
+
+% Code-Hervorhebung
+
+\usepackage{caption}
+\DeclareCaptionFormat{listing}{\par\hrule #1#2#3}
+\captionsetup[lstlisting]{format=listing, singlelinecheck=false, margin=0pt, font={bf,footnotesize}}
+\captionsetup[figure]{format=listing, singlelinecheck=false, margin=60pt, font={it,footnotesize,centering}}
+
+\parskip 12pt
+
+
+\renewcommand{\listoflistingscaption}{Quellcodes}
+\renewcommand{\listoflistingscaption}{Quellcode}
+\input{config/commands}
+\input{config/stmt_of_auth}
+\input{config/metainfo.tex}

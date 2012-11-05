@@ -1,0 +1,16 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                 Kopf und Fusszeilen %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[automark]{scrpage2}            % Kopf und Fusszeilen-Layout
+\renewcommand{\headfont}{\normalfont\sffamily\itshape}    % Kolumnentitel serifenlos
+\renewcommand{\pnumfont}{\normalfont\sffamily}    % Seitennummern serifenlos
+\pagestyle{scrheadings}
+%\pagestyle{scrplain}
+\ihead[]{\headmark}              % Kolumnentitel immer oben innen
+\chead[]{}                       % Mitte leer lassen
+\ohead[\pagemark]{\pagemark}     % Seitennummern immer oben aussen
+%\ohead[]{}
+\ofoot[]{}                       % Seitennummern in der Fusszeile loeschen
+\cfoot[]{}                       % Seitennummern in der Fusszeile loeschen
+
