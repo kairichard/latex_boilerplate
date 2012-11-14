@@ -1,35 +1,64 @@
 
 \usepackage{kpfonts}
-\usepackage[explicit]{titlesec}
-\newcommand*\chapterlabel{}
-\titleformat{\chapter}[display]
-  {\gdef\chapterlabel{}
-   \normalfont\sffamily\Huge\bfseries\scshape}
-  {\gdef\chapterlabel{\thechapter\ }}{0pt}
-  {\begin{tikzpicture}[remember picture,overlay]
-    \node[yshift=-3cm] at (current page.north west)
-      {\begin{tikzpicture}[remember picture, overlay]
-        \draw[fill=gray] (0,0) rectangle
-          (\paperwidth,3cm);
-        \node[anchor=east,xshift=.9\paperwidth,rectangle,
-              rounded corners=20pt,inner sep=11pt,
-              fill=MidnightBlue]
-              {\color{white}\chapterlabel#1};
-       \end{tikzpicture}
-      };
-   \end{tikzpicture}
-  }
-\titlespacing*{\chapter}{0pt}{50pt}{-60pt}
-
-% Schönere Kapitel?
-%\renewcommand{\thechapter}{\Roman{chapter}}
-%\usepackage{titlesec}
-%\usepackage{fix-cm}
+%\usepackage[explicit]{titlesec}
+%\newcommand*\chapterlabel{}
 %\titleformat{\chapter}[display]
-%{\bfseries\large} %war \Large
-%{\hfill\fontsize{100}{70}\selectfont\color{lightgray}\textbf{\thechapter}} %war 120 statt 100
-%{-4ex} % war -2ex
-%{\filleft\fontsize{30}{35}\selectfont\scshape} %war 50 statt 30 und 70 statt 45
-%[\vspace{-2ex}] %war 0ex
+  %{\gdef\chapterlabel{}
+   %\normalfont\sffamily\Huge\bfseries\scshape}
+  %{\gdef\chapterlabel{\thechapter\ }}{0pt}
+  %{\begin{tikzpicture}[remember picture,overlay]
+    %\node[yshift=-3cm] at (current page.north west)
+      %{\begin{tikzpicture}[remember picture, overlay]
+        %\draw[fill=gray] (0,0) rectangle
+          %(\paperwidth,3cm);
+        %\node[anchor=east,xshift=.9\paperwidth,rectangle,
+              %rounded corners=20pt,inner sep=11pt,
+              %fill=MidnightBlue]
+              %{\color{white}\chapterlabel#1};
+       %\end{tikzpicture}
+      %};
+   %\end{tikzpicture}
+  %}
+\newcommand{\MyTikzLogo}{% For a logo drawn with TikZ
+\begin{tikzpicture}[remember picture,overlay,yshift=0cm, xshift=0cm]
+    \draw [LightGray,fill=LightGray] (0cm,0cm) 
+        -- (\paperwidth,  0cm) 
+        -- (\paperwidth, -1cm)
+        -- (0cm, -1cm)
+        -- cycle;
+ \end{tikzpicture}
+}
+%\usepackage[scale=1,angle=0]{background}
+%\backgroundsetup{contents={\MyTikzLogo},position={0cm,0cm}}
 
+    %\draw [fill=blue] (0,0) rectangle(\paperwidth,3cm);
+
+\usepackage{eso-pic}% http://ctan.org/pkg/eso-pic
+\usepackage{graphicx}% http://ctan.org/pkg/graphicx
+
+\AddToShipoutPictureBG{%
+  \AtPageUpperLeft{\raisebox{-\height}{\MyTikzLogo}}%
+}
+
+%\SetBgContents{\MyGraphicLogo}% Select included image
+%\SetBgContents{\MyTikzLogo}% Select tikz picture
+
+%\SetBgPosition{current page.north west}% Select location
+%\SetBgOpacity{1.0}% Select opacity
+%\SetBgAngle{0.0}% Select roation of logo
+%\SetBgScale{1.0}% Select scale factor of logo
+
+%\newcommand*{\ListOfPagesWithLogo}{2,3,6}%
+
+%\makeatletter
+%\newcommand*{\AddLogoIfCurrentPageIsOnList}{%
+    %\foreach \LogoPage in \ListOfPagesWithLogo {%
+        %\IfEq{\arabic{page}}{\LogoPage}{%
+            %\bg@material%
+            %\breakforeach%
+        %}{}%
+    %}%
+%}%
+%\makeatother
+%\AddEverypageHook{\AddLogoIfCurrentPageIsOnList}%
 
