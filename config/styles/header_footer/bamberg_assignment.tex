@@ -8,3 +8,17 @@
 \rfoot{\thepage} 
 \renewcommand{\headrulewidth}{0.4pt} 
 \renewcommand{\footrulewidth}{0.4pt}
+
+
+% Schönere Kapitel?
+%\renewcommand{\thechapter}{\Roman{chapter}}
+\usepackage{titlesec}
+\usepackage{fix-cm}
+\titleformat{\chapter}[display]
+{\bfseries\large} %war \Large
+{\hfill\fontsize{100}{70}\selectfont\color{lightgray}\textbf{\thechapter}} %war 120 statt 100
+{-4ex} % war -2ex
+{\filleft\fontsize{30}{35}\selectfont\scshape} %war 50 statt 30 und 70 statt 45
+[\vspace{-2ex}] %war 0ex
+
+
